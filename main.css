@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.wrapper {
+    width: 1000px;
+    margin: 100px auto;
+    padding: 20px;
+    border:1px solid black;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.wrapper-top {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.weapon {
+    width: 69%;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.weapon img {
+    width: 80%;
+    height:auto;
+}
+
+.info {
+    width: 29%;
+    padding-top: 10px;
+    border: 1px solid #000000;
+}
+
+.info-title {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.info-list {
+    padding-left: 30px;
+    list-style-type: disc;
+}
+
+.info-list li {
+    margin-bottom: 10px;
+}
+
+.generate {
+    margin: 25px;
+    text-align: center;
+}
+
+.generate button {
+    padding: 20px 50px;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #8a458e;
+    color: #ffffff;
+}
+
+.weapons h2 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.weapons-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weapons-list li {
+    width: 25%;
+    text-align: center;
+}
+
+.weapons-list li img {
+    width:90%;
+}
+
+
+

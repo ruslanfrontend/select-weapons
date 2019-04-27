@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>генератор ящика</h1>
+    <div class="wrapper-top">
+        <div class="weapon">
+            <img src="weapons/galil.png" alt="galil" class="weapon-image">
+        </div>
+        <div class="info">
+            <h3 class="info-title">Тактико-технические характеристики</h3>
+            <ul class="info-list">
+                <li>
+                    <strong>Name</strong>
+                    <span class="weapon-name">Galil</span>
+                </li>
+                <li>
+                    <strong>maxArmor</strong>
+                    <span class="weapon-max-armor">500</span>
+                </li>
+                <li>
+                    <strong>weight</strong>
+                    <span class="weapon-weight">5</span>
+                </li>
+                <li>
+                    <strong>damage</strong>
+                    <span class="weapon-damage">500</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="generate">
+        <button class="generate-btn">сгенерировать</button>
+    </div>
+    <div class="weapons">
+        <h2>список оружий</h2>
+        <ul class="weapons-list"></ul>
+    </div>
+
+</div>
+
+<script>
+    // генерируем случайное число
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    // получаем доступ большой картинки
+    var weaponImage = document.querySelector('.weapon-image');
+    // получаем доступ к названию
+    var weaponName = document.querySelector('.weapon-name');
+    //
+    var weaponMaxArmor = document.querySelector('.weapon-max-armor');
+    //
+    var weaponWeight = document.querySelector('.weapon-weight');
+    //
+    var weaponDamage = document.querySelector('.weapon-damage');
+    var weaponsList = document.querySelector('.weapons-list');
+    // получаем доступ кнопки генерировать
+    var generateBtn = document.querySelector('.generate-btn');
+    // массив оружийс данными
+    var weapons = [
+        {
+            name: 'Galil',
+            damage: 500,
+            weight: 5,
+            maxArmor: 500,
+            image: './weapons/galil.png'
+        },
+        {
+            name: 'MTAR',
+            damage: 350,
+            weight: 3.5,
+            maxArmor: 450,
+            image: './weapons/mtar.png'
+        },
+        {
+            name: 'Fal',
+            damage: 500,
+            weight: 4.5,
+            maxArmor: 120,
+            image: './weapons/fal.png'
+        },
+        {
+            name: 'FN',
+            damage: 250,
+            weight: 0.5,
+            maxArmor: 220,
+            image: './weapons/fn.png'
+        },
+        {
+            name: 'HAMR',
+            damage: 450,
+            weight: 8,
+            maxArmor: 750,
+            image: './weapons/hamr.png'
+        },
+        {
+            name: 'Kap-40',
+            damage: 150,
+            weight: 0.5,
+            maxArmor: 120,
+            image: './weapons/kap-40.png'
+        },
+        {
+            name: 'Ksg-12',
+            damage: 750,
+            weight: 5.5,
+            maxArmor: 80,
+            image: './weapons/ksg-12.png'
+        },
+        {
+            name: 'Magnum',
+            damage: 900,
+            weight: 1.5,
+            maxArmor: 108,
+            image: './weapons/magnum.png'
+        },
+        {
+            name: 'MP5',
+            damage: 150,
+            weight: 2.5,
+            maxArmor: 150,
+            image: './weapons/mp5.png'
+        },
+        {
+            name: 'MZG',
+            damage: 750,
+            weight: 5,
+            maxArmor: 40,
+            image: './weapons/mzg.png'
+        },
+        {
+            name: 'RPD',
+            damage: 650,
+            weight: 9,
+            maxArmor: 875,
+            image: './weapons/rpd.png'
+        },
+        {
+            name: 'SMR',
+            damage: 150,
+            weight: 3,
+            maxArmor: 180,
+            image: './weapons/smr.png'
+        },
+        {
+            name: 'Ksg-12',
+            damage: 750,
+            weight: 5.5,
+            maxArmor: 80,
+            image: './weapons/ksg-12.png'
+        },
+        {
+            name: 'Magnum',
+            damage: 900,
+            weight: 1.5,
+            maxArmor: 108,
+            image: './weapons/magnum.png'
+        },
+        {
+            name: 'MP5',
+            damage: 150,
+            weight: 2.5,
+            maxArmor: 150,
+            image: './weapons/mp5.png'
+        },
+        {
+            name: 'MZG',
+            damage: 750,
+            weight: 5,
+            maxArmor: 40,
+            image: './weapons/mzg.png'
+        },
+        {
+            name: 'RPD',
+            damage: 650,
+            weight: 9,
+            maxArmor: 875,
+            image: './weapons/rpd.png'
+        },
+        {
+            name: 'SMR',
+            damage: 150,
+            weight: 3,
+            maxArmor: 180,
+            image: './weapons/smr.png'
+        },
+        {
+            name: 'Ksg-12',
+            damage: 750,
+            weight: 5.5,
+            maxArmor: 80,
+            image: './weapons/ksg-12.png'
+        },
+        {
+            name: 'Magnum',
+            damage: 900,
+            weight: 1.5,
+            maxArmor: 108,
+            image: './weapons/magnum.png'
+        },
+        {
+            name: 'MP5',
+            damage: 150,
+            weight: 2.5,
+            maxArmor: 150,
+            image: './weapons/mp5.png'
+        },
+        {
+            name: 'MZG',
+            damage: 750,
+            weight: 5,
+            maxArmor: 40,
+            image: './weapons/mzg.png'
+        },
+        {
+            name: 'RPD',
+            damage: 650,
+            weight: 9,
+            maxArmor: 875,
+            image: './weapons/rpd.png'
+        },
+        {
+            name: 'SMR',
+            damage: 150,
+            weight: 3,
+            maxArmor: 180,
+            image: './weapons/smr.png'
+        },
+    ];
+
+    // действия по нажатия на кнопку
+    generateBtn.addEventListener('click', function () {
+       // генерируем случайное число от 0 до длины массива
+        var random = getRandom(0, weapons.length);
+        // получаем оружие с данными по случайному числу
+        var selectWeapon = weapons[random];
+       // меняем путь основной картинки
+        weaponImage.setAttribute('src', selectWeapon.image);
+        // меняем текст названия оружия
+        weaponName.textContent = selectWeapon.name;
+        weaponMaxArmor.textContent = selectWeapon.maxArmor;
+        weaponWeight.textContent = selectWeapon.weight;
+        weaponDamage.textContent = selectWeapon.damage;
+
+        console.log('selectWeapon', selectWeapon);
+        console.log('random', random);
+    })
+
+    // создаем пустую переменную чтоб в цикле наполнить версткой оружий
+    var items = '';
+
+    // циклом выводим все оружия в верстку
+    for(var i=0; i<weapons.length; i++) {
+        items += `
+            <li>
+                <img src="${weapons[i].image}" alt="">
+                <h3>${weapons[i].name}</h3>
+            </li>
+        `;
+    }
+
+    weaponsList.innerHTML = items;
+
+    // balance
+    var balance = getRandom(0, 2000);
+
+    if (balance >= 950) {
+        console.log('Ты можешь открывать ящик', balance);
+    } else {
+        console.log('Ты не можешь открывать ящик БОМЖ', balance7[]);
+    }
+</script>
+
+</body>
+</html>
